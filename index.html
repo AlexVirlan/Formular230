@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Formular 230 ANAF pentru ...</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script type="text/javascript" charset="UTF-8" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="js/pdf-lib.min.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="js/signature_pad.umd.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="js/download.min.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="js/fontkit.umd.min.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="js/main.js"></script>
+    <script type="text/javascript" charset="UTF-8" async src="js/validate-forms.js"></script>
+</head>
+<body>
+    <div>
+        <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+            <header class="masthead mb-auto text-center">
+                <div class="inner">
+                    <h4 class="">Formular 230 ANAF pentru ...</h3>
+                </div>
+            </header>
+
+            <div id="info" class="inner cover text-center">
+                <h1 class="cover-heading">Înainte de toate...</h1>
+                <p class="lead">Această unealtă te ajută să îți generezi formularul 230 ANAF pentru a redirecționa 3,5% din impozitul pe venit către ....</p>
+                <p class="lead">După ce îți completezi datele și te semnezi, poți genera și descărca formularul pentru a-l printa sau trimite în format electronic.</p>
+                <p class="lead">Toate datele pe care le introduci <strong>NU</strong> sunt salvate sau trimise nicăieri. Generarea documentului se face în timp real doar pe dispozitivul tău.</p>
+                <div class="lead mt-5">
+                    <button class="btn btn-lg btn-primary" onclick="Start()">Începe!</button>
+                </div>
+            </div>
+
+            <form id="form" class="container text-center needs-validation d-none" novalidate>
+                <h3 class="mt-4 mb-4">Date de identificare a contribuabilului</h3>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nume" placeholder="Nume" required>
+                            <label for="nume">Nume</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="prenume" placeholder="Prenume" required>
+                            <label for="prenume">Prenume</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="initialaTatalui" placeholder="Inițiala tatălui"
+                                required>
+                            <label for="initialaTatalui">Inițiala tatălui</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="cnp" placeholder="CNP" required>
+                            <label for="cnp">CNP</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="email" placeholder="Email" required>
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="telefon" placeholder="Telefon" required>
+                            <label for="telefon">Telefon</label>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="mt-5 mb-4">Adresa de domiciliu<br />(așa cum apare în documentul de identitate)</h3>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="strada" placeholder="Strada" required>
+                            <label for="strada">Strada</label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nrStrada" placeholder="Nr. stradă" required>
+                            <label for="nrStrada">Nr. stradă</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="bloc" placeholder="Bloc">
+                            <label for="bloc">Bloc</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="scara" placeholder="Scară">
+                            <label for="scara">Scară</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="etaj" placeholder="Etaj">
+                            <label for="etaj">Etaj</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="apartament" placeholder="Apartament">
+                            <label for="apartament">Apartament</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="judet" placeholder="Județ" required>
+                            <label for="judet">Județ</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="localitate" placeholder="Localitate" required>
+                            <label for="localitate">Localitate</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="codPostal" placeholder="Cod poștal">
+                            <label for="codPostal">Cod poștal</label>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="mt-5 mb-4">Perioada redirecționării</h3>
+                <div>
+                    <input type="radio" class="btn-check" name="perioada" id="unAn" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="unAn">Un an</label>
+
+                    <input type="radio" class="btn-check" name="perioada" id="doiAni" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="doiAni">Doi ani</label>
+                </div>
+
+                <div class="mt-5 mb-4">
+                    <p>Semnătură:</p>
+                    <canvas id="signature-pad" class="signature-pad" width=400 height=200></canvas>
+                    <p><a class="link-underline-primary handCursor" onclick="ClearSignature()">Resetează semnătura</a></p>
+                </div>
+
+                <div class="row mt-5 mb-4">
+                    <button type="submit" class="btn btn-primary" >Generează și descarcă formularul 230 cu datele introduse mai
+                        sus</button>
+                </div>
+            </form>
+
+            <div class="modal fade" id="mainModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Info</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p id="mainModalMessage" class="text-center"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Am înțeles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="mastfoot mt-auto text-center">
+                <div class="inner">
+                    <p>Developed with ❤ by <a href="https://t.me/AlexVirlan" target="_blank">AvA</a>.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script>
+    </script>
+</body>
+</html>

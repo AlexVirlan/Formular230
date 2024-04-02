@@ -1,0 +1,33 @@
+/* Header */
+.masthead {
+    margin-bottom: 2rem;
+}
+
+/* Base structure */
+html, body {
+    height: 100% !important;
+    min-height: 100% !important;
+}
+
+body {
+    display: grid;
+}
+
+.cover-container {
+    max-width: 46em;
+}
+
+/* Others */
+.signature-pad {
+    border-style: solid;
+    border-color: cornflowerblue;
+}
+
+.handCursor {
+    cursor: pointer;
+}
+
+/* Footer */
+.mastfoot {
+    color: rgba(255, 255, 255, .5);
+}
