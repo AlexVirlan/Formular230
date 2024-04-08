@@ -2,7 +2,7 @@
 <html data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <title>Formular 230 ANAF pentru ...</title>
+    <title>Formular 230 ANAF</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <script type="text/javascript" charset="UTF-8" src="js/bootstrap.bundle.min.js"></script>
@@ -15,17 +15,17 @@
 </head>
 <body>
     <div>
-        <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+        <div id="mainDiv" class="cover-container d-flex h-100 p-3 mx-auto flex-column d-none">
             <header class="masthead mb-auto text-center">
                 <div class="inner">
-                    <h4 class="">Formular 230 ANAF pentru ...</h3>
+                    <h4 id="infoTitle" class="">Formular 230 ANAF</h3>
                 </div>
             </header>
 
             <div id="info" class="inner cover text-center">
                 <h1 class="cover-heading">Înainte de toate...</h1>
-                <p class="lead">Această unealtă te ajută să îți generezi formularul 230 ANAF pentru a redirecționa 3,5% din impozitul pe venit către ....</p>
-                <p class="lead">După ce îți completezi datele și te semnezi, poți genera și descărca formularul pentru a-l printa sau trimite în format electronic.</p>
+                <p id="pInfo1" class="lead">Această unealtă te ajută să îți <strong>generezi</strong> formularul 230 ANAF pentru a redirecționa 3,5% din impozitul pe venit către {{OrgName}}.</p>
+                <p class="lead">După ce îți completezi datele și te semnezi, poți genera și descărca formularul în format PDF pentru a-l printa sau trimite în format electronic.</p>
                 <p class="lead">Toate datele pe care le introduci <strong>NU</strong> sunt salvate sau trimise nicăieri. Generarea documentului se face în timp real doar pe dispozitivul tău.</p>
                 <div class="lead mt-5">
                     <button class="btn btn-lg btn-primary" onclick="Start()">Începe!</button>
@@ -149,7 +149,7 @@
                 </div>
 
                 <div class="mt-5 mb-4">
-                    <p>Semnătură:</p>
+                    <p>Semnătură olograf:</p>
                     <canvas id="signature-pad" class="signature-pad" width=400 height=200></canvas>
                     <p><a class="link-underline-primary handCursor" onclick="ClearSignature()">Resetează semnătura</a></p>
                 </div>

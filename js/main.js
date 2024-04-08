@@ -1,11 +1,31 @@
 const { PDFDocument } = PDFLib;
-var signaturePad;
+var _signaturePad;
+let _orgName, _orgCIF, _orgIBAN, _percent;
 
 window.onload = function () {
     var canvas = document.getElementById("signature-pad");
-    signaturePad = new SignaturePad(canvas, { penColor: "rgb(255, 255, 255)" });
+    _signaturePad = new SignaturePad(canvas, { penColor: "rgb(255, 255, 255)" });
+    GetAndSetConfig();
+    SetVisibility("mainDiv", true);
     AddStatistic("Visits");
 };
+
+function GetAndSetConfig() {
+    fetch('config.json')
+        .then((response) => response.json())
+        .then(
+            function(jsonData) {
+                _orgName = jsonData.OrgName;
+                _orgCIF = jsonData.OrgCIF;
+                _orgIBAN = jsonData.OrgIBAN;
+                _percent = jsonData.Percent;
+                document.title = `Formular 230 ANAF pentru ${_orgName}`;
+                document.getElementById("infoTitle").innerHTML = `Formular 230 ANAF pentru ${_orgName}`;
+                let pInfo1 = document.getElementById("pInfo1");
+                pInfo1.innerHTML = pInfo1.innerHTML.replace("{{OrgName}}", _orgName);
+            }
+        );
+}
 
 function Start() {
     SetVisibility("info", false);
@@ -13,7 +33,7 @@ function Start() {
 }
 
 function ClearSignature() {
-    signaturePad.clear();
+    _signaturePad.clear();
 }
 
 function ShowModalMessage(msgId) {
@@ -30,7 +50,7 @@ function ShowModalMessage(msgId) {
 async function Generate() {
     try {
         console.log("Generate started...");
-        if (signaturePad.isEmpty()) {
+        if (_signaturePad.isEmpty()) {
             ShowModalMessage(3);
             return;
         }
@@ -68,17 +88,17 @@ async function Generate() {
         form.getTextField('localitate').setText(document.getElementById("localitate").value);
         form.getTextField('zip').setText(document.getElementById("codPostal").value);
         if (document.getElementById("doiAni").checked) { form.getTextField('doi_ani').setText('X'); }
-        form.getTextField('target_cif').setText('...');
-        form.getTextField('target_name').setText('...');
-        form.getTextField('target_iban').setText('...');
-        form.getTextField('a5').setText('3,5');
+        form.getTextField('target_cif').setText(_orgCIF);
+        form.getTextField('target_name').setText(_orgName);
+        form.getTextField('target_iban').setText(_orgIBAN);
+        form.getTextField('a5').setText(_percent);
 
         form.flatten();
         const pages = pdfDoc.getPages();
         const firstPage = pages[0];
         UpdateSignaturePadColor("rgb(0, 0, 0)");
 
-        const signatureData = signaturePad.toDataURL();
+        const signatureData = _signaturePad.toDataURL();
         const pngSignature = await pdfDoc.embedPng(signatureData);
         const pngDims = pngSignature.scale(0.4);
 
@@ -104,9 +124,9 @@ async function Generate() {
 }
 
 function UpdateSignaturePadColor(color) {
-    signaturePad.penColor = color;
-    const data = signaturePad.toData();
-    signaturePad.fromData(data.map(d => {
+    _signaturePad.penColor = color;
+    const data = _signaturePad.toData();
+    _signaturePad.fromData(data.map(d => {
         d.penColor = color;
         return d;
     }));
